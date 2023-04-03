@@ -66,6 +66,7 @@
 <h1 id="nix-universal-sdk">Nix Universal SDK</h1>
 
 <p>A library to allow integration of Nix devices into third party Windows .NET applications.</p>
+<p>The latest version of this documentation is available <a href="https://www.nixsensor.com/sdk-doc-windows">online</a>.</p>
 <h2 id="overview">Overview</h2>
 <p>This library was written to allow integration of Nix devices into third party Windows .NET applications. It provides tools to discover nearby Nix devices, open a connection, perform measurements, and obtain data. Tools are also provided for basic colour conversions and colour difference calculations.</p>
 <p>This library replaces the previous <code>NixLibrary.dll</code> library. These two libraries should not be used together; remove <code>NixLibrary.dll</code> from your project before adding <code>NixUniversalSDK</code>.</p>
@@ -99,7 +100,7 @@
 <li>Once connected, measurements and other device operations can be performed. Device parameters can also be queried. See <a href="docs/device-operations.html">Device Operations</a> for more details.</li>
 <li>Once a measurement has been completed, results are provided as <a class="xref" href="api/NixUniversalSDK.IMeasurementData.html">IMeasurementData</a> instances. These objects provide colorimetry data, density, and spectral measurements (if supported by the device). See <a href="docs/handling-measurements.html">Handling Measurement Data</a> for more details</li>
 <li>Several additional utility functions are provided by the <a class="xref" href="api/NixUniversalSDK.ColorUtils.html">ColorUtils</a> class. These include functions for manual colour conversions, delta E calculations, and more.</li>
-<li>To demonstrate integration of the Nix Universal SDK, two <a href="docs/example-apps.html">demo applications</a> are provided with the SDK download:
+<li>To demonstrate integration of the Nix Universal SDK, two <a href="docs/example-apps.html">examples</a> are provided with the SDK download:
 <ul>
 <li>A basic console application <code>NixExampleConsole</code>, targeting .NET Framework 4.7.2</li>
 <li>A WinUI3 based application <code>NixExampleWinUI</code>, targeting .NET 7.0</li>
@@ -107,7 +108,7 @@
 </li>
 </ol>
 <h2 id="additional-support">Additional Support</h2>
-<p>This document is not intended as an exhaustive reference. Please refer to the on-line documentation in the <a class="xref" href="api/NixUniversalSDK.html">API</a> section for further details on the classes and methods provided by the Nix Universal SDK.</p>
+<p>This document is not intended as an exhaustive reference. Please refer to the <a class="xref" href="api/NixUniversalSDK.html">API</a> documentation section for further details on the classes and methods provided by the Nix Universal SDK.</p>
 <p>If you encounter any issues with SDK implementation, please contact us via:</p>
 <ul>
 <li>E-mail: sdk@nixsensor.com</li>
