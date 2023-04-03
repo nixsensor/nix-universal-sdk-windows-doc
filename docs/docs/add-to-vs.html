@@ -112,28 +112,30 @@ Successfully added package '.\NixUniversalSDK.4.0.0.nupkg' to feed 'C:\NuGetLoca
 </li>
 </ol>
 <pre><code class="lang-xml">&lt;Capabilities&gt;
-    &lt;!-- Existing capabilities here --&gt;
-    &lt;!-- ... --&gt;
-
-    &lt;!-- Nix required capabilities --&gt;
-    &lt;DeviceCapability Name=&quot;bluetooth.genericAttributeProfile&quot;&gt;
-      &lt;Device Id=&quot;any&quot;&gt;
-        &lt;Function Type=&quot;name:00001800-0000-1000-8000-00805f9b34fb&quot;/&gt;
-        &lt;Function Type=&quot;name:0000180a-0000-1000-8000-00805f9b34fb&quot;/&gt;
-        &lt;Function Type=&quot;name:0000180f-0000-1000-8000-00805f9b34fb&quot;/&gt;
-        &lt;Function Type=&quot;name:bebc4000-c4ba-e4a6-4422-dbb176d3a537&quot;/&gt;
-        &lt;Function Type=&quot;name:72d51000-b0da-4368-952f-dd2a64db5b61&quot;/&gt;        
-      &lt;/Device&gt;
-    &lt;/DeviceCapability&gt;
-    &lt;DeviceCapability Name=&quot;serialcommunication&quot;&gt;
-      &lt;Device Id=&quot;any&quot;&gt;
-        &lt;Function Type=&quot;name:serialPort&quot;/&gt;
-      &lt;/Device&gt;      
-    &lt;/DeviceCapability&gt;
-  &lt;/Capabilities&gt;
+  &lt;!-- Existing capabilities here --&gt;
+  &lt;!-- ... --&gt;
+  
+  &lt;!-- Nix required capabilities --&gt;
+  &lt;DeviceCapability Name=&quot;bluetooth.genericAttributeProfile&quot;&gt;
+    &lt;Device Id=&quot;any&quot;&gt;
+      &lt;Function Type=&quot;name:00001800-0000-1000-8000-00805f9b34fb&quot;/&gt;
+      &lt;Function Type=&quot;name:00001801-0000-1000-8000-00805f9b34fb&quot;/&gt;
+      &lt;Function Type=&quot;name:0000180a-0000-1000-8000-00805f9b34fb&quot;/&gt;
+      &lt;Function Type=&quot;name:0000180f-0000-1000-8000-00805f9b34fb&quot;/&gt;
+      &lt;Function Type=&quot;name:0000fe59-0000-1000-8000-00805f9b34fb&quot;/&gt;
+      &lt;Function Type=&quot;name:bebc4000-c4ba-e4a6-4422-dbb176d3a537&quot;/&gt;
+      &lt;Function Type=&quot;name:72d51000-b0da-4368-952f-dd2a64db5b61&quot;/&gt;        
+    &lt;/Device&gt;
+  &lt;/DeviceCapability&gt;
+  &lt;DeviceCapability Name=&quot;serialcommunication&quot;&gt;
+    &lt;Device Id=&quot;any&quot;&gt;
+      &lt;Function Type=&quot;name:serialPort&quot;/&gt;
+    &lt;/Device&gt;      
+  &lt;/DeviceCapability&gt;
+&lt;/Capabilities&gt;
 </code></pre>
 <h2 id="advanced-options">Advanced options</h2>
-<p>The SDK package could also be hosted on a private NuGet feed, though this is beyond the scope of this example. For further examples, refer to online documentation <a href="https://learn.microsoft.com/en-us/nuget/hosting-packages/overview">here</a>.</p>
+<p>The SDK package could also be hosted on a private networked NuGet feed, though this is beyond the scope of this example. For further examples, refer to online documentation <a href="https://learn.microsoft.com/en-us/nuget/hosting-packages/overview">here</a>.</p>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
 <li><a href="discovering-connecting.html">Discovering and Connecting to Nix Devices</a></li>
