@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/james/GitHub/nix-universal-sdk-windows/NixUniversalSDKDocs",
+  "source_base_path": "C:/Users/james/GitHub/nix-universal-sdk-windows/NixUniversalSDK.Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NixUniversalSDK.DeviceCompat.html",
-          "hash": "pITINDzxZSzBEVX0QSOOetMVAG/qwoH1KrgeJr+C1/s="
+          "hash": "jFK7E5bWI/uCiotg0XEMc0x41T2EcNySaNgFe6+lgkI="
         }
       },
       "version": ""
@@ -152,7 +152,7 @@
       "output": {
         ".html": {
           "relative_path": "api/NixUniversalSDK.DeviceResult.html",
-          "hash": "24C0uESxIZBLpwC8llRkzIQG9xge5rvHfQuuZDQuu0Q="
+          "hash": "8pKIDegXemvi/dmXl1C3Jm67ai+C9CbPjueKeBjPaHA="
         }
       },
       "version": ""
@@ -577,6 +577,116 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Constants.html",
+          "hash": "2+XcGgi/V2XMJG075Bfx7BAqtyUWnqlMcA2xJjErIj0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Delegates.BoolValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Delegates.BoolValue.html",
+          "hash": "YUNeaTu4qFphesrVah8hVX2AmEc82vSWHXWuQmRHoMk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Delegates.Empty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Delegates.Empty.html",
+          "hash": "LFiEpXS0snWf8a3wXi+QheSM/jEA2fyIL2A3+MBsfgE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Delegates.IntValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Delegates.IntValue.html",
+          "hash": "dl/fi1K4/H4GLJaJG722CKXckJ8P++dqZuiSUzGQUxU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Delegates.StringValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Delegates.StringValue.html",
+          "hash": "BDzfMf1SJgjNeE65d27NJ16UhrPNSH+CG/tTZwS2HMM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Delegates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Delegates.html",
+          "hash": "CqvvWWRkYhgmXsUKERY7so1VGXe1okGSH1EVh5ZIYF0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.DeviceCompatModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.DeviceCompatModule.html",
+          "hash": "BBF9KonAcp0px4d5B2Z9Bd2DcaDzMLw/EJOdEf9Uagk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.DeviceScannerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.DeviceScannerModule.html",
+          "hash": "ZjwkQOlGDwSIXFP/9dkIyUOyJ1Qzn3Tf9d3YOPxNNsE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.Exported.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.Exported.html",
+          "hash": "IVb/FzJk9ft02OR1pcD2OErGmkogEK62ObflBvIkGo0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NixUniversalSDK.Wrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NixUniversalSDK.Wrapper.html",
+          "hash": "MyWCBntq0KIGGJzJFLR7zpJqgPO7Rp0iB2F/vk88dNY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/NixUniversalSDK.yml",
       "output": {
         ".html": {
@@ -592,7 +702,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "nFZdJWZGhbkDVTYjSafTKcZ2XxlVVTb/So10etStuRM="
+          "hash": "KUSKsyWAAUSfXIktnYDjocSnF7KdOyez3uFgW7d0tV4="
         }
       },
       "version": ""
@@ -603,11 +713,11 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "aUE2Dn4fah2gFpXNnchm4szAQ4phLw2znr1KsfgfeSA="
+          "hash": "GLVJl/oWKjqsDMwzHvdT6xQp0vpgoDq3Ssg3dAu2S9g="
         },
         ".json": {
           "relative_path": "api/toc.json",
-          "hash": "pTq8otBQsz3QxOvEB2rQwNXVzrCw2OtSlVnlXFrzdBg="
+          "hash": "1N5xYlef9lkKucJfIoZ+SXuNoLsovEKCeGYXsxgyzhw="
         }
       },
       "version": ""
@@ -618,7 +728,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/add-to-vs.html",
-          "hash": "FGp3owYP4TceJTF5Q9/aDZfA4bI2fDrUztdj1DZDeN0="
+          "hash": "D7U+3jodLEeFiebtSZ3dp4DZ8lBQJPQbY2A3HbTBaMk="
         }
       },
       "version": ""
@@ -629,7 +739,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/device-operations.html",
-          "hash": "GoA23nux1F7HXjd1e+73ZMuT9V4kZj8IrM4+AVeRIQE="
+          "hash": "9zsgursnvSGUusWWGwSijIhSf22RU9G0NtqS+BSydGQ="
         }
       },
       "version": ""
@@ -640,7 +750,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/discovering-connecting.html",
-          "hash": "D/uv+Kf2dBcVi1Cs4wm41PsWZsNGpmKw3zaNSDGM8Ds="
+          "hash": "eCMOFHvPhYwO3PRuHMnn7pnPAS54CAvOe6AhZusutHs="
         }
       },
       "version": ""
@@ -651,7 +761,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/example-apps.html",
-          "hash": "QP8TUy43aqqtzFMWPrJPFSQu2hmyPj8C997K26u/zbw="
+          "hash": "p4yCsfMoxbIP39H2hrmSnCr1h2wf/vjwQEcUEV5+O0Q="
         }
       },
       "version": ""
@@ -662,7 +772,18 @@
       "output": {
         ".html": {
           "relative_path": "docs/handling-measurements.html",
-          "hash": "aJfedf3RN1STePIzBKWT0icQEa1ZelUqhQyo8Xb6TXs="
+          "hash": "ZdOaqOdqebbuKVypRbN603JDjdcGKPsB46SVnVyhRqI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/release-notes.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/release-notes.html",
+          "hash": "hoEAvMjgnDxRZWMkVJ684jE4evwxRGv5+UJw0vca/Nk="
         }
       },
       "version": ""
@@ -673,11 +794,22 @@
       "output": {
         ".html": {
           "relative_path": "docs/toc.html",
-          "hash": "1CrbtHsIO6RhjZsEGj9jRBvlcyV+iOUq/xd9SHxSa2Q="
+          "hash": "+YU2i79WolAAWEUUibiib62PtK7nAhGwI++EmjKtlpg="
         },
         ".json": {
           "relative_path": "docs/toc.json",
-          "hash": "OgdbLWZ1KWGdntEZTe4/ttosgQ8dD4/oa+EeHXBOhD4="
+          "hash": "tQ/ggsHeNcRYN67QxVKaeRFAwctD7xPff2h0wBCxlEA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/wrapper.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/wrapper.html",
+          "hash": "khhSu5GQtoSB2nKkMaRsY3XxkbM1Wmqe2GhAcs0aKJY="
         }
       },
       "version": ""
@@ -723,12 +855,22 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/wrapper_build_settings.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/wrapper_build_settings.png"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "zgOBG4aefjMK5jpAmuBs7IFz+8dKR/nV3jZvp1zwepA="
+          "hash": "gJnm2VX806OzaJhvbGQcfZr6JH+e0I6AN53hl0jofbs="
         }
       },
       "version": ""
