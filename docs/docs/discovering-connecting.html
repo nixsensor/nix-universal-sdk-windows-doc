@@ -342,6 +342,27 @@ var connectTask = Device.ConnectAsync();
 // Wait for completion
 var state = await connectTask;
 </code></pre>
+<h2 id="bluetooth-compatibility-notes">Bluetooth compatibility notes</h2>
+<ul>
+<li>Availability of Bluetooth functions may depend on your application being built natively for the computer architecture used at runtime. An architecture mismatch may result in the <a class="xref" href="../api/NixUniversalSDK.IDeviceScanner.html"><code>IDeviceScanner</code></a> initializing with status <a class="xref" href="../api/NixUniversalSDK.DeviceScannerState.html#NixUniversalSDK_DeviceScannerState_ErrorBluetoothUnavailable"><code>ErrorBluetoothUnavailable</code></a>, even if Bluetooth hardware is present in the system. This is related to an underlying limitation in the Windows Runtime API as described <a href="https://learn.microsoft.com/en-us/uwp/api/windows.devices.radios.radio.getradiosasync#remarks">here</a>.
+<ul>
+<li>When the <code>NixUniversalSDK</code> is called from a UWP or WinUI application, there is no architecture requirement.
+<ul>
+<li>Builds made for AnyCPU, x86, x64, and ARM64 should support Bluetooth device discovery regardless of the computer architecture</li>
+</ul>
+</li>
+<li>When the <code>NixUniversalSDK</code> is called from a desktop application, Bluetooth functions are only available when running on native architecture.
+<ul>
+<li>x86 application builds support Bluetooth functions when running on x86 hardware</li>
+<li>x64 application builds support Bluetooth functions when running on x64 hardware</li>
+<li>x86 application builds <strong>do not</strong> support Bluetooth functions when running on x64 hardware</li>
+</ul>
+</li>
+<li>If the <a class="xref" href="../api/NixUniversalSDK.IDeviceScanner.html"><code>IDeviceScanner</code></a> initializes to an error state, it cannot be used to discover Bluetooth devices. However, USB attached devices can still be listed by calling <a class="xref" href="../api/NixUniversalSDK.IDeviceScanner.html#NixUniversalSDK_IDeviceScanner_ListUsbDevicesAsync"><code>ListUsbDevicesAsync()</code></a> even when the <a class="xref" href="../api/NixUniversalSDK.IDeviceScanner.html"><code>IDeviceScanner</code></a> is in an error state.</li>
+</ul>
+</li>
+<li>Bluetooth connection speed is greatly improved when running your application on Windows 11 as compared to Windows 10. This is related to enhancements that were made in the Windows Runtime API for Windows 11. The <code>NixUniversalSDK</code> automatically requests the highest Bluetooth connection speeds available from the system at runtime.</li>
+</ul>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li><a href="device-operations.html">Device Operations</a></li>
