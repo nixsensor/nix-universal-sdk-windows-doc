@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -9,12 +9,13 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Device Operations ">
     
-      <link rel="shortcut icon" href="../favicon.ico">
+    
+      <link rel="shortcut icon" href="../images/ic_nix_swatches.png">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc">
-      <meta property="docfx:tocrel" content="toc">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
     
     
     
@@ -34,7 +35,7 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/nix_logo_grey.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -51,7 +52,8 @@
                       <li>
                           <a href="../api/NixUniversalSDK.html" title="API">API</a>
                       </li>
-                </ul>            </div>
+                </ul>
+            </div>
           </div>
         </nav>
 
@@ -90,6 +92,9 @@
                             <a href="add-to-vs.html" title="Adding to Your Visual Studio Project" class="">Adding to Your Visual Studio Project</a>
                           </li>
                           <li class="">
+                            <a href="activating-license.html" title="Activating the SDK License" class="">Activating the SDK License</a>
+                          </li>
+                          <li class="">
                             <a href="discovering-connecting.html" title="Discovering and Connecting to Nix Devices" class="">Discovering and Connecting to Nix Devices</a>
                           </li>
                           <li class="active">
@@ -104,14 +109,16 @@
                           <li class="">
                             <a href="wrapper.html" title="Wrapper for Usage in C/C++" class="">Wrapper for Usage in C/C++</a>
                           </li>
-                        </ul>                    </li>
+                        </ul>
+                    </li>
                     <li class="">
                       <a href="../api/NixUniversalSDK.html" title="API" class="">API</a>
                     </li>
                     <li class="">
                       <a href="release-notes.html" title="Release Notes" class="">Release Notes</a>
                     </li>
-                  </ul>                </div>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -122,9 +129,9 @@
 <h1 id="device-operations">Device Operations</h1>
 
 <h2 id="taking-measurements">Taking measurements</h2>
-<p>Once the device is connected and in an idle state, it is possible to take measurements using <a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_MeasureAsync_"><code>MeasureAsync()</code></a>:</p>
+<p>Once the device is connected and in an <code>Idle</code> state, it is possible to take measurements using <a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_MeasureAsync_"><code>MeasureAsync()</code></a>:</p>
 <ul>
-<li>The variable number of arguments <code>modes</code> argument may be omitted to run measurements in all modes supported by the device. This is the recommended option.</li>
+<li>The variable number of arguments <code>modes</code> argument may be omitted to run measurements in all modes supported by the device. <em>This is the recommended option</em>.</li>
 <li>If <code>modes</code> arguments are supplied, measurements will be provided only for the specified scan modes. In most cases, this will not speed up the measurement cycle time, so this is not recommended.</li>
 <li>The measurement operation is asynchronous. While the measurement is in progress, no other commands can be sent to the Nix device.</li>
 <li>Results of the measurement operation are provided as a <a class="xref" href="../api/NixUniversalSDK.DeviceResult.html"><code>DeviceResult</code></a> containing two properties:
@@ -202,6 +209,59 @@
 </tr>
 </tbody>
 </table>
+<pre><code class="lang-csharp">// Connected device instance
+IDeviceCompat Device;
+
+// Start the measurement
+var measureTask = Device.MeasureAsync();
+
+// Show progress indicator here if desired
+// ...
+
+// Wait for completion
+var result = await measureTask;
+
+// Handle status
+switch (result.Status) 
+{
+    case CommandStatus.Success:
+        // Successful operation, handle measurement data here
+        // Measurements are available via result.Measurements
+        // ...
+        break;
+    case CommandStatus.ErrorNotReady:
+        // Scan did not complete because the device was busy
+        // ...
+        break;
+    case CommandStatus.ErrorNotSupported:
+        // Scan did not complete because this device does not 
+        // support this command
+        // ...
+        break;
+    case CommandStatus.ErrorLowPower:
+        // Scan did not complete because the battery level is
+        // too low
+        // ...
+        break;
+    case CommandStatus.ErrorTimeout:
+        // Timeout when waiting for result
+        // ...
+        break;
+    case CommandStatus.ErrorAmbientLight:
+        // Scan did not complete because ambient light leakage
+        // was detected
+        // ...
+        break;
+    case CommandStatus.ErrorLicense:
+        // Scan did not complete because of a license issue
+        // Check LicenseManager.State
+        // ...
+    default:
+        // Did not complete because of other internal error
+        // ...
+        break;
+}
+</code></pre>
 <h2 id="performing-in-field-profiling--calibration-with-reference-tile">Performing in-field profiling / calibration with reference tile</h2>
 <p>Certain device types support in-field profiling or calibration using a provided reference tile. This process requires first decoding a string from the QR code attached to the reference tile and then directing the user to measure the same tile. Any necessary adjustments/corrections are performed internally by the SDK and/or the Nix device firmware itself.</p>
 <ul>
@@ -297,6 +357,11 @@ if (Device.IsTileStringValid(tileString)
             // Successful operation
             // ...
             break;
+        case CommandStatus.WarningTemperature:
+            // Completed successfully, but ambient temperature is outside
+            // of the recommended range
+            // ...
+            break;
         case CommandStatus.ErrorScanDelta:
             // Operation failed because the measured value of the 
             // reference tile is too far from the expected value
@@ -331,6 +396,10 @@ if (Device.IsTileStringValid(tileString)
             // was detected
             // ...
             break;
+        case CommandStatus.ErrorLicense:
+            // Scan did not complete because of a license issue
+            // Check LicenseManager.State
+            // ...
         default:
             // Other internal error
             // ...
@@ -459,13 +528,19 @@ else
 <li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_SerialNumber"><code>SerialNumber</code></a>: device serial number</li>
 <li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_Note"><code>Note</code></a>: device allocation / production code</li>
 <li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_ProvidesSpectral"><code>ProvidesSpectral</code></a>: indicates whether or not this device provides spectral data</li>
-<li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_ProvidesDensity"><code>ProvidesDensity</code></a>: inidcates whether or not this device provides density data</li>
+<li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_ProvidesDensity"><code>ProvidesDensity</code></a>: indicates whether or not this device provides density data</li>
+<li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_SupportedModes"><code>SupportedModes</code></a>: list of supported measurement modes for this device</li>
 <li><a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_SupportedReferences"><code>SupportedReferences</code></a>: list of supported reference white values provided by the measurement data from this device</li>
 </ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The <a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_ProvidesDensity"><code>ProvidesDensity</code></a> and <a class="xref" href="../api/NixUniversalSDK.IDeviceCompat.html#NixUniversalSDK_IDeviceCompat_ProvidesSpectral"><code>ProvidesSpectral</code></a> properties indicate whether or not the hardware device is capable of providing these data types. However, these measurements will only be available if these features are enabled by the current license. See <a href="activating-license.html#other-license-properties">Other license properties</a> for more details.</p>
+</div>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li><a href="handling-measurements.html">Handling Measurement Data</a></li>
 </ul>
+
 </article>
           </div>
 
@@ -474,12 +549,12 @@ else
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/device-operations.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/device-operations.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -9,12 +9,13 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Handling Measurement Data ">
     
-      <link rel="shortcut icon" href="../favicon.ico">
+    
+      <link rel="shortcut icon" href="../images/ic_nix_swatches.png">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc">
-      <meta property="docfx:tocrel" content="toc">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
     
     
     
@@ -34,7 +35,7 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/nix_logo_grey.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -51,7 +52,8 @@
                       <li>
                           <a href="../api/NixUniversalSDK.html" title="API">API</a>
                       </li>
-                </ul>            </div>
+                </ul>
+            </div>
           </div>
         </nav>
 
@@ -90,6 +92,9 @@
                             <a href="add-to-vs.html" title="Adding to Your Visual Studio Project" class="">Adding to Your Visual Studio Project</a>
                           </li>
                           <li class="">
+                            <a href="activating-license.html" title="Activating the SDK License" class="">Activating the SDK License</a>
+                          </li>
+                          <li class="">
                             <a href="discovering-connecting.html" title="Discovering and Connecting to Nix Devices" class="">Discovering and Connecting to Nix Devices</a>
                           </li>
                           <li class="">
@@ -104,14 +109,16 @@
                           <li class="">
                             <a href="wrapper.html" title="Wrapper for Usage in C/C++" class="">Wrapper for Usage in C/C++</a>
                           </li>
-                        </ul>                    </li>
+                        </ul>
+                    </li>
                     <li class="">
                       <a href="../api/NixUniversalSDK.html" title="API" class="">API</a>
                     </li>
                     <li class="">
                       <a href="release-notes.html" title="Release Notes" class="">Release Notes</a>
                     </li>
-                  </ul>                </div>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -133,16 +140,16 @@
 <li>To check if available, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementDataExtensions.html#NixUniversalSDK_IMeasurementDataExtensions_ProvidesColor_"><code>ProvidesColor()</code></a></li>
 </ul>
 </li>
-<li>May provide spectral data as <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html"><code>ISpectralData</code></a>, depending on the device type
+<li>May provide spectral data as <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html"><code>ISpectralData</code></a>, depending on the device type and license capabilities
 <ul>
 <li>To check if available: check the property <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesSpectral"><code>ProvidesSpectral</code></a></li>
 <li>To get spectral data, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_SpectralData"><code>SpectralData</code></a></li>
 </ul>
 </li>
-<li>May provide density data as <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a>, depending on the device type
+<li>May provide density data as <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a>, depending on the device type and license capabilities
 <ul>
 <li>To check if available: check the property <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesDensity"><code>ProvidesDensity</code></a></li>
-<li>To get density data, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementDataExtensions.html#NixUniversalSDK_IMeasurementDataExtensions_ToDensityData_"><code>ToDensityData()</code></a></li>
+<li>To get density data, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ToDensityData_"><code>ToDensityData()</code></a></li>
 </ul>
 </li>
 <li>The measurement data contains all data and metadata to completely describe the measurement
@@ -420,9 +427,17 @@
 </tr>
 </tbody>
 </table>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The table above indicates whether or not the hardware device is capable of providing these data types. However, these values will only be available if enabled by the active license. See <a href="activating-license.html#other-license-properties">Other license properties</a> for more details.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The <code>IMeasurementData</code> flags <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesSpectral"><code>ProvidesSpectral</code></a> and <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesSpectral"><code>ProvidesDensity</code></a> take into account both the device and license capabilities and can be used to determine if these data are currently available.</p>
+</div>
 <h2 id="icolordata"><a class="xref" href="../api/NixUniversalSDK.IColorData.html"><code>IColorData</code></a></h2>
 <ul>
-<li>Consists of colorimetry data for a single reference white point (eg - <a class="xref" href="../api/NixUniversalSDK.ReferenceWhite.html#NixUniversalSDK_ReferenceWhite_D50_2">D50/2°</a>) and single measurement mode</li>
+<li>Consists of colorimetry data for a single reference white point (e.g. - <a class="xref" href="../api/NixUniversalSDK.ReferenceWhite.html#NixUniversalSDK_ReferenceWhite_D50_2">D50/2°</a>) and single measurement mode</li>
 <li>Can be obtained directly from an <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html"><code>IMeasurementData</code></a> object, or an <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html"><code>ISpectralData</code></a> object</li>
 <li>Full description of a color consisting of:
 <ul>
@@ -470,7 +485,7 @@
 <li>Spectral values: <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html#NixUniversalSDK_ISpectralData_Value"><code>Value</code></a> (numeric array)</li>
 </ul>
 </li>
-<li>Can be used to obtain density data as an <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a> object
+<li>Can be used to obtain density data as an <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a> object, if enabled by the current license
 <ul>
 <li>Use <a class="xref" href="../api/NixUniversalSDK.ISpectralDataExtensions.html#NixUniversalSDK_ISpectralDataExtensions_ToDensityData_"><code>ToDensityData()</code></a></li>
 </ul>
@@ -506,13 +521,16 @@
 </ul>
 </li>
 </ul>
-<h2 id="other-utilities">Other utilities</h2>
-<p>The <a class="xref" href="../api/NixUniversalSDK.ColorUtils.html"><code>ColorUtils</code></a> class provides many helpful functions for manual colour conversions and delta E calculations.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The <a class="xref" href="../api/NixUniversalSDK.ColorUtils.html"><code>ColorUtils</code></a> class also provides many helpful functions for manual colour conversions and delta E calculations.</p>
+</div>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Review the <a href="example-apps.html">example applications</a></li>
 <li><a href="../index.html#additional-support">Get additional support</a></li>
 </ul>
+
 </article>
           </div>
 
@@ -521,12 +539,12 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/handling-measurements.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/handling-measurements.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

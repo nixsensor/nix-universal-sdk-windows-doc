@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -9,12 +9,13 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Release Notes ">
     
-      <link rel="shortcut icon" href="../favicon.ico">
+    
+      <link rel="shortcut icon" href="../images/ic_nix_swatches.png">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc">
-      <meta property="docfx:tocrel" content="toc">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
     
     
     
@@ -34,7 +35,7 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/nix_logo_grey.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -51,7 +52,8 @@
                       <li>
                           <a href="../api/NixUniversalSDK.html" title="API">API</a>
                       </li>
-                </ul>            </div>
+                </ul>
+            </div>
           </div>
         </nav>
 
@@ -90,6 +92,9 @@
                             <a href="add-to-vs.html" title="Adding to Your Visual Studio Project" class="">Adding to Your Visual Studio Project</a>
                           </li>
                           <li class="">
+                            <a href="activating-license.html" title="Activating the SDK License" class="">Activating the SDK License</a>
+                          </li>
+                          <li class="">
                             <a href="discovering-connecting.html" title="Discovering and Connecting to Nix Devices" class="">Discovering and Connecting to Nix Devices</a>
                           </li>
                           <li class="">
@@ -104,14 +109,16 @@
                           <li class="">
                             <a href="wrapper.html" title="Wrapper for Usage in C/C++" class="">Wrapper for Usage in C/C++</a>
                           </li>
-                        </ul>                    </li>
+                        </ul>
+                    </li>
                     <li class="">
                       <a href="../api/NixUniversalSDK.html" title="API" class="">API</a>
                     </li>
                     <li class="active">
                       <a href="release-notes.html" title="Release Notes" class="active">Release Notes</a>
                     </li>
-                  </ul>                </div>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -121,10 +128,51 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-notes">Release Notes</h1>
 
+<h2 id="version-420">Version 4.2.0</h2>
+<ul>
+<li>Released on February 21, 2025</li>
+<li>Nix Universal SDK functions must now be enabled with a license key using the <a class="xref" href="../api/NixUniversalSDK.LicenseManager.html"><code>LicenseManager</code></a>. For further details, refer to <a href="activating-license.html">Activating the SDK License</a>.</li>
+<li>Existing <code>enum</code> types have added cases related to <code>LicenseManager</code> errors. Refer to the API documentation linked below for additional details.
+<ul>
+<li><a class="xref" href="../api/NixUniversalSDK.CommandStatus.html#NixUniversalSDK_CommandStatus_ErrorLicense">CommandStatus.ErrorLicense</a></li>
+<li><a class="xref" href="../api/NixUniversalSDK.DeviceScannerState.html#NixUniversalSDK_DeviceScannerState_ErrorLicense">DeviceScannerState.ErrorLicense</a></li>
+<li><a class="xref" href="../api/NixUniversalSDK.DeviceStatus.html#NixUniversalSDK_DeviceStatus_ErrorLicense">DeviceStatus.ErrorLicense</a></li>
+</ul>
+</li>
+<li><a class="xref" href="../api/NixUniversalSDK.ISpectralDataExtensions.html#NixUniversalSDK_ISpectralDataExtensions_ToDensityData_"><code>ISpectralData.ToDensityData()</code></a> can now return <code>null</code>.
+<ul>
+<li>The result is <code>null</code> when <a class="xref" href="../api/NixUniversalSDK.LicenseFeature.html#NixUniversalSDK_LicenseFeature_DensityData">LicenseFeature.DensityData</a> is not provided by the active license.</li>
+</ul>
+</li>
+<li>Compatibility: targeted Windows framework version has been lowered for .NET Core 6 and above
+<ul>
+<li><code>NixUniversalSDK</code> now targets Windows 10 version 1809 (10.0.17763) instead of Windows 11 version 22H2 (10.0.22621)</li>
+<li>Minimum supported Windows version remains as Windows 10 version 1703 (10.0.15063)</li>
+</ul>
+</li>
+<li>Removed a dependency on <code>Microsoft.WindowsAppSDK</code></li>
+<li>Updated dependency versions
+<ul>
+<li><code>System.IO.Ports</code> to <code>8.0.0</code> from <code>7.0.0</code></li>
+<li><code>System.Text.Json</code> to <code>8.0.5</code> from <code>7.0.0</code></li>
+</ul>
+</li>
+<li>The <code>NixUniversalSDK.Wrapper</code> project has been re-structured to use NativeAOT.
+<ul>
+<li>A single self-contained native binary will be created when building the wrapper for C/C++ usage.</li>
+<li>ARM64 builds are now supported by the <code>NixUniversalSDK.Wrapper</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="version-414">Version 4.1.4</h2>
+<ul>
+<li>Internal development version</li>
+<li>Handled an exception that could occur when listing USB connected devices due to a serial port conflict</li>
+</ul>
 <h2 id="version-413">Version 4.1.3</h2>
 <ul>
 <li>Released on May 31, 2024</li>
-<li>Fixed a Nuget packaging issue that could prevent .NET 6.0+ applications from building.</li>
+<li>Fixed a NuGet packaging issue that could prevent .NET Core 6.0+ applications from building.</li>
 </ul>
 <h2 id="version-412">Version 4.1.2</h2>
 <ul>
@@ -185,6 +233,7 @@
 <li>Released on April 3, 2023</li>
 <li>Initial release for <code>NixUniversalSDK</code>, replacing the older <code>NixLibrary</code> project.</li>
 </ul>
+
 </article>
           </div>
 
@@ -193,12 +242,12 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/release-notes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/release-notes.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

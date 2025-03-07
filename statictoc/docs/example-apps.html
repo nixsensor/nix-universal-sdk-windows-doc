@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -9,12 +9,13 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Example Applications ">
     
-      <link rel="shortcut icon" href="../favicon.ico">
+    
+      <link rel="shortcut icon" href="../images/ic_nix_swatches.png">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc">
-      <meta property="docfx:tocrel" content="toc">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
     
     
     
@@ -34,7 +35,7 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/nix_logo_grey.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -51,7 +52,8 @@
                       <li>
                           <a href="../api/NixUniversalSDK.html" title="API">API</a>
                       </li>
-                </ul>            </div>
+                </ul>
+            </div>
           </div>
         </nav>
 
@@ -90,6 +92,9 @@
                             <a href="add-to-vs.html" title="Adding to Your Visual Studio Project" class="">Adding to Your Visual Studio Project</a>
                           </li>
                           <li class="">
+                            <a href="activating-license.html" title="Activating the SDK License" class="">Activating the SDK License</a>
+                          </li>
+                          <li class="">
                             <a href="discovering-connecting.html" title="Discovering and Connecting to Nix Devices" class="">Discovering and Connecting to Nix Devices</a>
                           </li>
                           <li class="">
@@ -104,14 +109,16 @@
                           <li class="">
                             <a href="wrapper.html" title="Wrapper for Usage in C/C++" class="">Wrapper for Usage in C/C++</a>
                           </li>
-                        </ul>                    </li>
+                        </ul>
+                    </li>
                     <li class="">
                       <a href="../api/NixUniversalSDK.html" title="API" class="">API</a>
                     </li>
                     <li class="">
                       <a href="release-notes.html" title="Release Notes" class="">Release Notes</a>
                     </li>
-                  </ul>                </div>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -121,9 +128,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="example-applications">Example Applications</h1>
 
-<p>Two example applications and their complete source code are provided with the <code>NixUniversalSDK</code> download. To review the examples, use Visual Studio 2022 to open the <code>nix-universal-sdk-windows-example.sln</code> solution file located in the <code>example-windows</code> folder. The solution contains two projects, one for each example application.</p>
+<p>Two example applications and their complete source code are provided with the <code>NixUniversalSDK</code> download, available <a href="https://www.nixsensor.com/sdk-windows">online</a>. To review the examples, use Visual Studio 2022 to open the <code>nix-universal-sdk-windows-example.sln</code> solution file located in the <code>example-windows</code> folder. The solution contains multiple projects, one for each example application.</p>
 <p>Both applications demonstrate:</p>
 <ul>
+<li>Activating and displaying license information</li>
 <li>Device discovery on Bluetooth and USB interfaces</li>
 <li>Opening and closing a connection to a device</li>
 <li>Displaying additional device info (serial number, battery level, etc.)</li>
@@ -133,17 +141,34 @@
 <li>Performing in-field calibration on the provided reference tile</li>
 <li>Displaying additional measurement information (temperature, scan settings, etc.)</li>
 </ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The example applications will activate the SDK license at launch using values entered in <code>LicenseKey.cs</code>. Both examples also allow entry of different license codes at runtime.</p>
+</div>
 <h2 id="console-demo">Console Demo</h2>
-<p>The <code>NixExampleConsole</code> project contains a basic console application, targeting .NET Framework 4.7.2. To run this example, set <code>NixExampleConsole</code> as the 'Startup Project', build, and run.</p>
+<p>The <code>NixExampleConsole</code> project contains a basic console application, targeting .NET Framework 4.7.2. To run this example:</p>
+<ul>
+<li>Open the <code>nix-universal-sdk-windows-example.sln</code> solution file</li>
+<li>Update the license information in <code>NixExampleConsole/LicenseKey.cs</code></li>
+<li>Set <code>NixExampleConsole</code> as the 'Startup Project'</li>
+<li>Build and run</li>
+</ul>
 <p><img src="../images/console_example.png" alt="Console Demo Screenshot"></p>
 <h2 id="winui3-demo">WinUI3 Demo</h2>
-<p>The <code>NixExampleWinUI</code> project contains a WinUI3 based application, targeting .NET 7.0. To run this example, set <code>NixExampleWinUI</code> as the 'Startup Project', build, and run.</p>
+<p>The <code>NixExampleWinUI</code> project contains a WinUI3 based application, targeting .NET 8.0. To run this example:</p>
+<ul>
+<li>Open the <code>nix-universal-sdk-windows-example.sln</code> solution file</li>
+<li>Update the license information in <code>NixExampleWinUI/LicenseKey.cs</code></li>
+<li>Set <code>NixExampleWinUI</code> as the 'Startup Project'</li>
+<li>Build and run</li>
+</ul>
 <p><img src="../images/winui_example.png" alt="WinUI3 Demo Screenshot"></p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li><a href="wrapper.html">Wrapper for Usage in C/C++</a></li>
 <li><a href="../index.html#additional-support">Get additional support</a></li>
 </ul>
+
 </article>
           </div>
 
@@ -152,12 +177,12 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/example-apps.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/example-apps.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
