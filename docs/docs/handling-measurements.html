@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -6,35 +6,53 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Handling Measurement Data ">
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      
+      <link rel="icon" href="../images/ic_nix_swatches.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/handling-measurements.md/#L1">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nixsensor/nix-universal-sdk-windows/blob/dev/NixUniversalSDK.Docs/docs/handling-measurements.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
 
-  <body data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="">
+            <img id="logo" class="svg" src="../images/nix_logo_grey.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -55,7 +73,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -77,16 +95,16 @@
 <li>To check if available, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementDataExtensions.html#NixUniversalSDK_IMeasurementDataExtensions_ProvidesColor_"><code>ProvidesColor()</code></a></li>
 </ul>
 </li>
-<li>May provide spectral data as <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html"><code>ISpectralData</code></a>, depending on the device type
+<li>May provide spectral data as <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html"><code>ISpectralData</code></a>, depending on the device type and license capabilities
 <ul>
 <li>To check if available: check the property <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesSpectral"><code>ProvidesSpectral</code></a></li>
 <li>To get spectral data, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_SpectralData"><code>SpectralData</code></a></li>
 </ul>
 </li>
-<li>May provide density data as <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a>, depending on the device type
+<li>May provide density data as <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a>, depending on the device type and license capabilities
 <ul>
 <li>To check if available: check the property <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesDensity"><code>ProvidesDensity</code></a></li>
-<li>To get density data, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementDataExtensions.html#NixUniversalSDK_IMeasurementDataExtensions_ToDensityData_"><code>ToDensityData()</code></a></li>
+<li>To get density data, use <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ToDensityData_"><code>ToDensityData()</code></a></li>
 </ul>
 </li>
 <li>The measurement data contains all data and metadata to completely describe the measurement
@@ -364,9 +382,17 @@
 </tr>
 </tbody>
 </table>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The table above indicates whether or not the hardware device is capable of providing these data types. However, these values will only be available if enabled by the active license. See <a href="activating-license.html#other-license-properties">Other license properties</a> for more details.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The <code>IMeasurementData</code> flags <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesSpectral"><code>ProvidesSpectral</code></a> and <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html#NixUniversalSDK_IMeasurementData_ProvidesSpectral"><code>ProvidesDensity</code></a> take into account both the device and license capabilities and can be used to determine if these data are currently available.</p>
+</div>
 <h2 id="icolordata"><a class="xref" href="../api/NixUniversalSDK.IColorData.html"><code>IColorData</code></a></h2>
 <ul>
-<li>Consists of colorimetry data for a single reference white point (eg - <a class="xref" href="../api/NixUniversalSDK.ReferenceWhite.html#NixUniversalSDK_ReferenceWhite_D50_2">D50/2°</a>) and single measurement mode</li>
+<li>Consists of colorimetry data for a single reference white point (e.g. - <a class="xref" href="../api/NixUniversalSDK.ReferenceWhite.html#NixUniversalSDK_ReferenceWhite_D50_2">D50/2°</a>) and single measurement mode</li>
 <li>Can be obtained directly from an <a class="xref" href="../api/NixUniversalSDK.IMeasurementData.html"><code>IMeasurementData</code></a> object, or an <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html"><code>ISpectralData</code></a> object</li>
 <li>Full description of a color consisting of:
 <ul>
@@ -414,7 +440,7 @@
 <li>Spectral values: <a class="xref" href="../api/NixUniversalSDK.ISpectralData.html#NixUniversalSDK_ISpectralData_Value"><code>Value</code></a> (numeric array)</li>
 </ul>
 </li>
-<li>Can be used to obtain density data as an <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a> object
+<li>Can be used to obtain density data as an <a class="xref" href="../api/NixUniversalSDK.IDensityData.html"><code>IDensityData</code></a> object, if enabled by the current license
 <ul>
 <li>Use <a class="xref" href="../api/NixUniversalSDK.ISpectralDataExtensions.html#NixUniversalSDK_ISpectralDataExtensions_ToDensityData_"><code>ToDensityData()</code></a></li>
 </ul>
@@ -450,18 +476,24 @@
 </ul>
 </li>
 </ul>
-<h2 id="other-utilities">Other utilities</h2>
-<p>The <a class="xref" href="../api/NixUniversalSDK.ColorUtils.html"><code>ColorUtils</code></a> class provides many helpful functions for manual colour conversions and delta E calculations.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The <a class="xref" href="../api/NixUniversalSDK.ColorUtils.html"><code>ColorUtils</code></a> class also provides many helpful functions for manual colour conversions and delta E calculations.</p>
+</div>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Review the <a href="example-apps.html">example applications</a></li>
 <li><a href="../index.html#additional-support">Get additional support</a></li>
 </ul>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/main/NixUniversalSDK.Docs/docs/handling-measurements.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/nixsensor/nix-universal-sdk-windows/blob/dev/NixUniversalSDK.Docs/docs/handling-measurements.md/#L1" class="edit-link">Edit this page</a>
         </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
       </div>
 
       <div class="affix">
@@ -470,7 +502,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
